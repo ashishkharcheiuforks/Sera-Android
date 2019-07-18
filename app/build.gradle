@@ -88,6 +88,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    // AssistedInject
+    compileOnly 'com.squareup.inject:assisted-inject-annotations-dagger2:0.4.0'
+    annotationProcessor 'com.squareup.inject:assisted-inject-processor-dagger2:0.4.0'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

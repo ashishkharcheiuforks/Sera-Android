@@ -1,7 +1,10 @@
 package com.guerra.enrico.sera.appinitializers
 
 import android.app.Application
+import androidx.work.Configuration
+import androidx.work.WorkManager
 import com.guerra.enrico.sera.workers.TodosWorker
+import com.guerra.enrico.sera.workers.di.SeraWorkerFactory
 import javax.inject.Inject
 
 /**
@@ -9,9 +12,12 @@ import javax.inject.Inject
  * on 20/12/2018.
  */
 class TodosWorkerInitializer @Inject constructor(
-        private val todosJob: TodosWorker
+        private val todosWorker: TodosWorker,
+        private val workerFactory: SeraWorkerFactory
 ): AppInitializer{
     override fun init(application: Application) {
-        todosJob.setUpNightTodoSync()
+      val config = Configuration.Builder().setWorkerFactory(workerFactory).build()
+      WorkManager.initialize(application, config)
+      todosWorker.setUpNightTodoSync()
     }
 }
