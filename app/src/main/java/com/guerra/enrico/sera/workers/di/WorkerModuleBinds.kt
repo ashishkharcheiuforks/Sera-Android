@@ -29,5 +29,5 @@ abstract class WorkerModuleBinds {
 
   @Binds
   @IntoSet
-  abstract fun provideTodoWorkerInitializers(bind: TodosWorkerInitializer): AppInitializer
+  abstract fun provideTodoWorkerInitializer(bind: TodosWorkerInitializer): AppInitializer
 }

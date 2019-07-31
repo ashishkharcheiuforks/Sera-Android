@@ -7,7 +7,8 @@ import dagger.Module
  * Created by enrico
  * on 17/07/2019.
  */
+
+//@Module(includes = [AssistedInject_AppAssistedModule::class])
 @AssistedModule
-//@Module(includes = [AssistedInject_AppAssistedModule])
 @Module
 abstract class AppAssistedModule

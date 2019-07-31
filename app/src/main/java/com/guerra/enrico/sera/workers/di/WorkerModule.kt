@@ -1,6 +1,7 @@
 package com.guerra.enrico.sera.workers.di
 
 import android.content.Context
+import androidx.work.Configuration
 import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
@@ -14,5 +15,8 @@ import javax.inject.Singleton
 class WorkerModule {
   @Provides
   @Singleton
-  fun provideWorkManager(context: Context): WorkManager = WorkManager.getInstance()
+  fun provideWorkManager(context: Context): WorkManager = WorkManager.getInstance(context)
+
+  @Provides
+  fun provideWorkConfiguration(workerFactory: SeraWorkerFactory): Configuration = Configuration.Builder().setWorkerFactory(workerFactory).build()
 }
